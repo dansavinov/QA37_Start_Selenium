@@ -8,10 +8,10 @@ import org.testng.annotations.Test;
 
 public class Homework {
 
-    WebDriver  wd;
+    WebDriver wd;
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         wd = new ChromeDriver(options);
@@ -51,7 +51,7 @@ public class Homework {
         // by class
         WebElement element15 = wd.findElement(By.className("container"));
         WebElement element16 = wd.findElement(By.cssSelector(".container"));
-        WebElement xElement8  = wd.findElement(By.xpath("//*[@class='container']"));
+        WebElement xElement8 = wd.findElement(By.xpath("//*[@class='container']"));
 
         WebElement element17 = wd.findElement(By.className("navbar-component_nav__1X_4m"));
         WebElement element18 = wd.findElement(By.cssSelector(".navbar-component_nav__1X_4m"));
@@ -71,24 +71,39 @@ public class Homework {
         WebElement element24 = wd.findElement(By.cssSelector("[href='/home']"));
         WebElement element25 = wd.findElement(By.cssSelector("[name='email']"));
         WebElement xElement12 = wd.findElement(By.xpath("//*[@placeholder='Email']"));
+        WebElement xElement12a = wd.findElement(By.xpath("//*[@href = '/home']"));
 
         // one of elements find by attribute ==> start & end & contains value
         WebElement element26 = wd.findElement(By.cssSelector("[placeholder='Email']"));
         WebElement xElement13 = wd.findElement(By.xpath("//input[@placeholder='Email']"));
         //Start
         WebElement element27 = wd.findElement(By.cssSelector("[placeholder ^='Em']"));
-        WebElement element28 = wd.findElement(By.xpath("//input[starts-with(@placeholder,'Em')]"));
-        WebElement xElement14 = wd.findElement(By.cssSelector("[placeholder $='il']"));
+        WebElement xElement14 = wd.findElement(By.xpath("//input[starts-with(@placeholder,'Em')]"));
+        WebElement element28 = wd.findElement(By.cssSelector("[placeholder $='il']"));
+        WebElement xElement15 = wd.findElement(By.xpath("//*[contains(@placeholder, 'il')]"));
         // contains
         WebElement element29 = wd.findElement(By.cssSelector("[placeholder *='ma']"));
-        WebElement xElement15 = wd.findElement(By.xpath("//input[contains(@placeholder,'ss')]"));
-        WebElement xElement16 = wd.findElement(By.xpath("//a[3]"));
+        WebElement xElement16 = wd.findElement(By.xpath("//input[contains(@placeholder,'ss')]"));
+        WebElement xElement17 = wd.findElement(By.xpath("//a[3]"));
 
 
+    }
 
+    @Test
+    public void classwork() {
+        WebElement element = wd.findElement(By.cssSelector("[name='login']"));
 
+        String text = element.getText();
+        System.out.println(text);
 
+        WebElement form = wd.findElement(By.xpath("//form"));
+        String textForm = form.getText();
+        System.out.println(************************);
+        System.out.println(textForm);
 
-
+        WebElement html = wd.findElement(By.tagName("html"));
+        String textall = html.getText();
+        System.out.println(************************);
+        System.out.println(textall);
     }
 }
